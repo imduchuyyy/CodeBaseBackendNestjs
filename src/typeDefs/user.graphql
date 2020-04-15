@@ -1,0 +1,42 @@
+enum Gender {
+	UNKNOWN
+	MALE
+	FEMALE
+}
+
+enum Role {
+	SUPERADMIN
+	ADMIN
+	MENBER
+}
+
+type User {
+	_id: ID!
+  fullName: String!
+  username: String!
+  password: String!
+	avatar: String
+	gender: Gender!
+	isOnline: Boolean!
+  createdAt: Float!
+}
+
+input CreateUserInput {
+	username: String
+	password: String
+	role: String
+	gender: String
+	fullName: String
+}
+
+type Query {
+  hello: String
+}
+
+type Mutation {
+	createUser(input: CreateUserInput): User @isAuthenticated
+}
+
+type Subscription{
+	newUser: User @isAuthenticated
+}

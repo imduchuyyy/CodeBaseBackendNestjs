@@ -5,11 +5,49 @@
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2017",
+    "target": "es6",
     "sourceMap": true,
+    "incremental": true,
+    "allowSyntheticDefaultImports": true,
+    "noLib": false,
+    "noImplicitAny": false,
     "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true
+    "baseUrl": "./src",
+    "typeRoots": [
+      "node_modules/@types",
+      "types"
+    ],
+    "paths": {
+      "@auth": [
+        "auth"
+      ],
+      "@common": [
+        "common"
+      ],
+      "@config": [
+        "config"
+      ],
+      "@resolvers": [
+        "resolvers"
+      ],
+      "@environments": [
+        "environments"
+      ],
+      "@models": [
+        "models"
+      ],
+    }
   },
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*.ts"
+  ],
+  "compileOnSave": false,
+  "exclude": [
+    "node_modules",
+    "coverage",
+    "document",
+    "dist",
+    "backup",
+    "**/*.spec.ts"
+  ]
 }
