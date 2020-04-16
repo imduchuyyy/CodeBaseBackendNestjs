@@ -8,8 +8,8 @@ import * as helmet from 'helmet'
 import * as rateLimit from 'express-rate-limit'
 import * as chalk from 'chalk'
 
-import { 
-  PORT, 
+import {
+  PORT,
   RATE_LIMIT_MAX,
   END_POINT,
   NODE_ENV,
@@ -35,9 +35,9 @@ async function bootstrap() {
     app.use(
       rateLimit({
         windowMs: 1000 * 60 * 60, // an hour
-				max: RATE_LIMIT_MAX!, // limit each IP to 100 requests per windowMs
-				message:
-					'⚠️  Too many request created from this IP, please try again after an hour'
+        max: RATE_LIMIT_MAX!, // limit each IP to 100 requests per windowMs
+        message:
+          '⚠️  Too many request created from this IP, please try again after an hour'
       })
     )
 
@@ -51,36 +51,36 @@ async function bootstrap() {
     }
 
     NODE_ENV !== 'production'
-			? Logger.log(
-					`🚀  Server ready at http://${DOMAIN!}:${chalk
-						.hex(PRIMARY_COLOR!)
-						.bold(`${PORT!}`)}/${END_POINT!}`,
-					'Bootstrap',
-					false
-			  )
-			: Logger.log(
-					`🚀  Server is listening on port ${chalk
-						.hex(PRIMARY_COLOR!)
-						.bold(`${PORT!}`)}`,
-					'Bootstrap',
-					false
-			  )
+      ? Logger.log(
+        `🚀  Server ready at http://${DOMAIN!}:${chalk
+          .hex(PRIMARY_COLOR!)
+          .bold(`${PORT!}`)}/${END_POINT!}`,
+        'Bootstrap',
+        false
+      )
+      : Logger.log(
+        `🚀  Server is listening on port ${chalk
+          .hex(PRIMARY_COLOR!)
+          .bold(`${PORT!}`)}`,
+        'Bootstrap',
+        false
+      )
 
-		NODE_ENV !== 'production' &&
-			Logger.log(
-				`🚀  Subscriptions ready at ws://${DOMAIN!}:${chalk
-					.hex(PRIMARY_COLOR!)
-					.bold(`${PORT!}`)}/${END_POINT!}`,
-				'Bootstrap',
-				false
+    NODE_ENV !== 'production' &&
+      Logger.log(
+        `🚀  Subscriptions ready at ws://${DOMAIN!}:${chalk
+          .hex(PRIMARY_COLOR!)
+          .bold(`${PORT!}`)}/${END_POINT!}`,
+        'Bootstrap',
+        false
       )
 
   } catch (error) {
     Logger.error(`❌  Error starting server, ${error}`, '', 'Bootstrap', false)
-		process.exit()
+    process.exit()
   }
 }
 bootstrap().catch(e => {
-	Logger.error(`❌  Error starting server, ${e}`, '', 'Bootstrap', false)
-	throw e
+  Logger.error(`❌  Error starting server, ${e}`, '', 'Bootstrap', false)
+  throw e
 })
