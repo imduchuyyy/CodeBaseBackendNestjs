@@ -30,6 +30,12 @@ export class GraphqlService implements GqlOptionsFactory {
       formatResponse: res => {
         return res
       },
+      cacheControl: {
+        defaultMaxAge: 5,
+        stripFormattedExtensions: false,
+        calculateHttpHeaders: false
+      },
+      tracing: true,
       path: `/${END_POINT}`,
       bodyParserConfig: {
         limit: '50mb'
