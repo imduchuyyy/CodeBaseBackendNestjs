@@ -35,7 +35,7 @@
     "apollo-server-cache-memcached": "^0.6.4",
     "apollo-server-express": "^2.12.0",
     "apollo-server-plugin-response-cache": "^0.4.1",
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "chalk": "^4.0.0",
     "class-transformer": "^0.2.3",
     "dotenv": "^8.2.0",
